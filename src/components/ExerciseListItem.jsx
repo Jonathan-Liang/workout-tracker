@@ -5,19 +5,13 @@ export default function ExerciseListItem({ item }) {
     <View style={styles.exerciseContainer}>
       <Text style={styles.exerciseName}>{item.name}</Text>
       <Text style={styles.exerciseDescription}>
-        {item.muscle.toUpperCase()} | {item.equipment.toUpperCase()}
+        <Text style={styles.subValue}>{item.muscle.toUpperCase()}</Text> | <Text style={styles.subValue}>{item.equipment.toUpperCase()}</Text>
       </Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'gainsboro',
-    justifyContent: 'center',
-    padding: 10,
-  },
   exerciseContainer: {
     backgroundColor: '#fff',
     padding: 10,
@@ -31,4 +25,7 @@ const styles = StyleSheet.create({
   exerciseDescription: {
     color: 'dimgray'
   },
+  subValue: {
+    textTransform: 'capitalize'
+  }
 });

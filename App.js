@@ -13,6 +13,7 @@ export default function App() {
       <FlatList
         data={exercises}
         contentContainerStyle={{ gap: 5 }}
+        keyExtractor={(item, index) => item.name + index} 
         renderItem={({ item }) => <ExerciseListItem item={item} />}
       />
 
