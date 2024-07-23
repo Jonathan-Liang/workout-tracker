@@ -42,41 +42,44 @@ export default function ExerciseDetailScreen() {
     return <Text>Exercise not found</Text>
   }
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <View style={styles.container}>
       <Stack.Screen options={{title: exercise.name}} />
 
-      <View style={styles.panel}>
-        <Text style={styles.exerciseName}>{exercise.name}</Text>
-        <Text style={styles.exerciseDescription}>
-          <Text style={styles.subValue}>{exercise.muscle.toUpperCase()}</Text> | <Text style={exercise.subValue}>{exercise.equipment.toUpperCase()}</Text>
-        </Text>
-      </View>
+      <SetsList 
+        ListHeaderComponent={() => (
+          <View style={{ gap: 5 }}>
+            <View style={styles.panel}>
+              <Text style={styles.exerciseName}>{exercise.name}</Text>
+              <Text style={styles.exerciseDescription}>
+                <Text style={styles.subValue}>{exercise.muscle.toUpperCase()}</Text> | <Text style={exercise.subValue}>{exercise.equipment.toUpperCase()}</Text>
+              </Text>
+            </View>
 
-      <View style={styles.panel}>
-        <Text 
-          style={styles.instructions} 
-          numberOfLines={isInstructionExpanded ? 0 : 3}
-        >
-          {exercise.instructions}
-        </Text>
-        <Text 
-          onPress={() => setIsInstructionExpanded(!isInstructionExpanded)} 
-          style={styles.seeMore}
-        >
-          {isInstructionExpanded ? "See less" : "See more"}
-        </Text>
-      </View>
-
-      <NewSetInput exerciseName={exercise.name} />
-      <SetsList />
-    </ScrollView>
+            <View style={styles.panel}>
+              <Text 
+                style={styles.instructions} 
+                numberOfLines={isInstructionExpanded ? 0 : 3}
+              >
+                {exercise.instructions}
+              </Text>
+              <Text 
+                onPress={() => setIsInstructionExpanded(!isInstructionExpanded)} 
+                style={styles.seeMore}
+              >
+                {isInstructionExpanded ? "See less" : "See more"}
+              </Text>
+            </View>
+            <NewSetInput exerciseName={exercise.name} />
+          </View>
+        )}
+      />
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    gap: 10,
   },
   panel: {
     backgroundColor: 'white',
