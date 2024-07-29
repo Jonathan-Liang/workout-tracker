@@ -1,0 +1,28 @@
+curl --request POST 'https://us-east-2.aws.data.mongodb-api.com/app/data-bppnaln/endpoint/data/v1/action/find' \
+--header 'Content-Type: application/json' \
+--header 'Access-Control-Request-Headers: *' \
+--header 'api-key: 19a40CiHauQDmJI4EJt7FRgZzSOljU7RM0xiLLrKso1XAPYfkhdMbbUUwAkjz8wO' \
+--data-raw '{
+    "collection":"sets",
+    "database":"workouts",
+    "dataSource":"Clooster",
+    "filter": {
+        "exercise": "T-Bar Row with Handle"
+    }
+}'
+
+stepzen import curl "https://us-east-2.aws.data.mongodb-api.com/app/data-bppnaln/endpoint/data/v1/action/insertOne" \
+  -X POST \
+  -H "apiKey: 19a40CiHauQDmJI4EJt7FRgZzSOljU7RM0xiLLrKso1XAPYfkhdMbbUUwAkjz8wO" \
+  -H 'Content-Type: application/json' \
+  -H "Accept: application/json" \
+  -d '{
+    "dataSource": "Clooster",
+    "database": "workouts",
+    "collection": "sets",
+    "document": {
+      "exercise": "push",
+      "weight": 4,
+      "reps": 1
+    }
+  }'

@@ -46,6 +46,7 @@ export default function ExerciseDetailScreen() {
       <Stack.Screen options={{title: exercise.name}} />
 
       <SetsList 
+        exerciseName={exercise.name}
         ListHeaderComponent={() => (
           <View style={{ gap: 5 }}>
             <View style={styles.panel}>
