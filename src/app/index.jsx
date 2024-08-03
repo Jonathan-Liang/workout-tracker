@@ -39,7 +39,7 @@ export default function ExercisesScreen() {
 
   return (
     <View style={styles.container}>
-      <Text>{username}</Text>
+      <Text style={styles.header}>Welcome back {username}!</Text>
       <FlatList
         data={data?.exercises}
         contentContainerStyle={{ gap: 5 }}
@@ -53,6 +53,12 @@ export default function ExercisesScreen() {
 }
 
 const styles = StyleSheet.create({
+  header: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 30,
+    padding: 10,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
